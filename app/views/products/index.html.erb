@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<div class="wrapper" id="form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                                
+                <div class="fresh-table toolbar-color-orange">
+                <!--    Available colors for the full background: full-color-blue, full-color-azure, full-color-green, full-color-red, full-color-orange                  
+                        Available colors only for the toolbar: toolbar-color-blue, toolbar-color-azure, toolbar-color-green, toolbar-color-red, toolbar-color-orange
+                -->
+                
+                    <div class="toolbar">
+                        <%= link_to 'New Product', new_product_path, class:"btn btn-default" %>
+                        <h5 class="text-muted pull-right" style="margin-left:10px">Listing Products</h5>
+                    </div>
+                    
+                    <table id="fresh-table" class="table">
+                        <thead>
+                            <th data-field="id">ID</th>
+                        	<th data-field="name" data-sortable="true">Name</th>
+                        	<th data-field="price" data-sortable="true">price</th>
+                        	<th data-field="country" data-sortable="true">Country</th>
+                        	<th data-field="city">City</th>
+                        	<th data-field="actions" >Actions</th>
+                        </thead>
+                        <tbody>
+                            <% @products.each do |product| %>
+                              <tr>
+                                <td><%= product.id %></td>
+                                <td><%= product.name %></td>
+                                <td><%= product.price %></td>
+                                <td><%= product.sale_off %></td>
+                                <td><%= product.is_service %></td>
+                                <td>
+                                    <%= link_to product, class:"table-action like" do %>
+                                        <i class="fa fa-eye" aria-hidden="true" class='text-default'></i>
+                                    <% end %>
+                                    <%= link_to product, class:"table-action like" do %>
+                                        <i class="fa fa-pencil-square-o" class='text-warning'aria-hidden="true"></i>
+                                    <% end %>
+                                    <%= link_to product, method: :delete , class:"table-action like" do %>
+                                        <i class="fa fa-times" aria-hidden="true" class="text-danger"></i>
+                                    <% end %>
+                                </td>
+                              </tr>
+                            <% end %>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+

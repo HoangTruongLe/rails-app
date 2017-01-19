@@ -1,0 +1,131 @@
+<div class="col-md-6">
+    <div class="card">
+        <div class="header">
+            <h4 class="title">Product previewing</h4>
+        </div>
+        <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                             <%= label_tag 'Product name' %><br>
+                             <p><%= @product.name %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                             <%= label_tag 'Price' %><br>
+                             <p><%= @product.price %></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                             <%= label_tag 'Safe Off' %><br>
+                             <p><%= @product.sale_off %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                             <%= label_tag 'Type' %><br>
+                             <% if @product.type %>
+                             <p><%= @product.type %></p>
+                             <% else %>
+                             <p>None</p>
+                             <% end %>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                              <%= label_tag 'Vendor' %><br>
+                             <% if @product.vendor %>
+                             <p><%= @product.vendor %></p>
+                             <% else %>
+                             <p>None</p>
+                             <% end %>
+                        </div>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <%= label_tag 'Is Service' %><br>
+                            <%= check_box_tag nil, @product.is_service, nil, disabled: true %>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <%= label_tag 'Is Product Active' %><br>
+                            <%= check_box_tag nil, @product.product_active, nil, disabled: true %>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <%= label_tag 'Description' %><br>
+                            <%= text_area_tag nil, @product.description, rows:"10", class:"form-control", disabled: true %>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+  </div>
+<div class="col-md-6">
+    <div class="card">
+        <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                             <%= label_tag 'Video Caption' %><br>
+                             <p><%= @product.caption %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <%= label_tag 'Video URL' %><br>
+                            <p><%= @product.video_url %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                      <% if @product.video_url != '' %>
+                        <div class="hs-responsive-embed-youtube">
+                          <iframe src="<%= @product.video_url %>"frameborder="0" width="100%" allowfullscreen ></iframe>
+                          </div>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                          <hr>
+                          <% if @product.product_photos.any? |p| %>
+                          <%= label_tag "Photos" %><br>
+                          <% @product.product_photos.each do |p| %>
+                            <div class="col-md-3">
+                              <div class="card" data-no-turbolink="">
+                                <div class="thumbnail" style='position:reletive'>
+                                  <%= image_tag p.photo.url(:thumb) %>
+                                   <%= link_to product_photo_path(p), method: :delete , class:"delete-button" do %>
+                                        <i class="fa fa-times" aria-hidden="true" class="text-danger"></i>
+                                    <% end %>
+                                </div>
+                              </div>
+                            </div>
+                          <% end %>
+                          <% end %>
+                    </div>
+                  </div>
+                </div>
+                  <%= link_to 'Edit', edit_product_path(@product), class:"btn btn-info btn-fill pull-right", style:"margin-left: 10px" %>
+                  <%= link_to 'New Product', new_product_path, class:"btn btn-info btn-fill pull-right" %>
+                <div class="clearfix"></div>
+        </div>
+    </div>
+  </div>

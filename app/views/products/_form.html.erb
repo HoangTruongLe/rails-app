@@ -1,0 +1,129 @@
+
+<%= form_for @product, html: {multipart: true} do |f| %>
+  <div class="col-md-6">
+    <div class="card">
+        <div class="header">
+            <h4 class="title"><%= title %></h4>
+        </div>
+        <div class="content">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                             <%= f.label :name %><br>
+                             <%= f.text_field :name, class:"form-control", placeholder:"Name" %>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                             <%= f.label :price %><br>
+                             <%= f.text_field :price, class:"form-control", placeholder:"Price" %>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                             <%= f.label :sale_off %><br>
+                             <%= f.text_field :sale_off, class:"form-control", placeholder:"Sale Off" %>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                             <%= f.label :type %><br>
+                             <%= f.collection_select :type_id, Type.all, :id, :name,{:include_blank => 'None'}, {:class => 'form-control'} %>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                             <%= f.label :vendor %><br>
+                             <%= f.collection_select :vendor_id, Vendor.all, :id, :name,{:include_blank => 'None'}, {:class => 'form-control'} %>
+                        </div>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <%= f.label :is_service %><br>
+                            <%= f.check_box :is_service %>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                             <%= f.label :product_active %><br>
+                            <%= f.check_box :product_active %>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <%= f.label :description %>
+                            <%= f.text_area :description, rows:"10", class:"form-control", placeholder:"Here can be your description" %>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+  </div>
+  
+  <div class="col-md-6">
+    <div class="card">
+        <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                             <%= f.label "Video Caption" %><br>
+                             <%= f.text_field :caption, class:"form-control", placeholder:"caption" %>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <%= f.label :video_url %><br>
+                            <%= f.text_field :video_url, class:"form-control", placeholder:"Video Url", id:"product_video_url" %>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                         <div class="form-group" id="video-frame-holder">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                          <%= f.label :photo %><br>
+                          <div class="file-upload btn btn-info btn-sm">
+                              <p id="uploadFile">Choose File</p>
+                             <%= file_field_tag "photos[]", type: :file, multiple: true, class:'upload', id:'uploadBtn' %>
+                          </div>
+                          <div class="col-md-12" id="preview"></div>
+                          <hr>
+                          <% if @product.product_photos.any? |p| %>
+                          <%= f.label :photos %><br>
+                          <% @product.product_photos.each do |p| %>
+                            <div class="col-md-3">
+                              <div class="card" data-no-turbolink="">
+                                <div class="thumbnail">
+                                  <%= image_tag p.photo.url(:thumb) %>
+                                </div>
+                              </div>
+                            </div>
+                          <% end %>
+                          <% end %>
+                    </div>
+                  </div>
+                </div>
+                <div class="actions">
+                  <%= f.submit(title,class:"btn btn-info btn-fill pull-right") %>
+                </div>
+                <div class="clearfix"></div>
+        </div>
+    </div>
+  </div>
+<% end %>
