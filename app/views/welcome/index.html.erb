@@ -1,0 +1,101 @@
+<div class="wrapper">        
+    <div class="demo-header demo-header-image">
+            <div class="motto">
+                <h1 class="title-uppercase">Amy spa</h1>
+                <h3 class="sologan">Mình thích thì mình làm thôi</h3>
+            </div>
+            
+    </div>
+    
+    <div class="main">
+        <div class="section section-nude">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2" id="sidebar">
+                <div class="fixed-section">
+                    <ul>
+                        <% if @types.any? %>
+                            <% @types.each do |t|%>
+                                <li><a href="#<%= t.pname %>"><%= t.name.camelize %></a></li>
+                                <hr>
+                            <% end %>
+                                
+                        <% end %>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-1">
+                <div class="tim-container" >
+
+                    <!-- buttons row -->
+                    <% if @types.any? %>
+                        <% @types.each do |t|%>
+                         <div class="tim-row" id="<%= t.pname %>">
+                            <h5><%= t.name.camelize %></h5>
+                            <legend></legend>
+                            <% if @products.any? %>
+                                <% @products.each do |p|%>
+                                    <% if p.type and t.id == p.type.id%>
+                                    <%= link_to detail_path(p) do %>
+                                    <div class="col-xs-6 col-md-4">
+                                        <div class="row">
+                                            <div class="col-md-12" style="min-height:50px">
+                                                <p><%= truncate(p.name.camelize, length:25) %></p>
+                                            </div> 
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <figure>
+                                                    <% if p.product_photos.first %>
+                                                        <%= image_tag p.product_photos.first.photo.url(:medium) %>
+                                                    <% else %>
+                                                        <img src="//s3.amazonaws.com/amyspa/product_photos/photos/000/000/004/medium/built_on_glass.jpg?1484895127" class="img-rounded">
+                                                    <% end %>
+                                                    <% if p.sale_off!=nil and p.sale_off > 0 %>
+                                                    <figcaption><div>
+                                                        <% if p.discount_by_percentage %>
+                                                            <%= number_to_currency((p.price - (p.price/100*p.sale_off)), locale: :vi, precision: 0).to_s if p.price %>
+                                                        <% else %>
+                                                            <%= number_to_currency(p.price - p.sale_off, locale: :vi, precision: 0).to_s if p.price %>
+                                                        <% end %>
+                                                    </div></figcation>
+                                                    <% else %>
+                                                    <figcaption><div><%= number_to_currency(p.price, locale: :vi, precision: 0).to_s if p.price %></div></figcation>
+                                                    <% end %>
+                                                </figure>
+                                            </div> 
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <% if p.sale_off %>
+                                                    <p class="text-primary pull-left">
+                                                        <strike>
+                                                            <%= number_to_currency(p.price, locale: :vi, precision: 0).to_s if p.price %>
+                                                        </strike>
+                                                    </p>
+                                                    <p class="text-danger pull-left">
+                                                        <% if p.discount_by_percentage %>
+                                                            <%= number_to_currency(p.price - p.price/100*p.sale_off, locale: :vi, precision: 0).to_s if p.price %>
+                                                        <% else %>
+                                                            <%= number_to_currency(p.price - p.sale_off, locale: :vi, precision: 0).to_s if p.price %>
+                                                        <% end %>
+                                                    </p>
+                                                <% end %>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <% end %>
+                                    <% end %>
+                                <% end %>
+                            <% end %>
+                            <div class="clearfix"></div>
+                        </div>
+                        <% end %>
+                    <% end %>
+                <!-- end container -->
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

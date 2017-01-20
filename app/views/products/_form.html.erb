@@ -16,16 +16,22 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                              <%= f.label :price %><br>
-                             <%= f.text_field :price, class:"form-control", placeholder:"Price" %>
+                             <%= f.text_field :price, data: {autonumeric: {mDec: 0}} , class:"form-control", placeholder:"Price" %>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                              <%= f.label :sale_off %><br>
-                             <%= f.text_field :sale_off, class:"form-control", placeholder:"Sale Off" %>
+                             <%= f.text_field :sale_off, data: {autonumeric: {mDec: 0}}, class:"form-control", placeholder:"Sale Off" %>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                         <div class="form-group">
+                             <%= f.label :discount_by_percentage %><br>
+                             <%= f.check_box :discount_by_percentage %>
                         </div>
                     </div>
                 </div>
@@ -105,16 +111,16 @@
                           <div class="col-md-12" id="preview"></div>
                           <hr>
                           <% if @product.product_photos.any? |p| %>
-                          <%= f.label :photos %><br>
-                          <% @product.product_photos.each do |p| %>
-                            <div class="col-md-3">
-                              <div class="card" data-no-turbolink="">
-                                <div class="thumbnail">
-                                  <%= image_tag p.photo.url(:thumb) %>
+                              <%= f.label :photos %><br>
+                              <% @product.product_photos.each do |p| %>
+                                <div class="col-md-3">
+                                  <div class="card" data-no-turbolink="">
+                                    <div class="thumbnail">
+                                      <%= image_tag p.photo.url(:thumb) %>
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
-                            </div>
-                          <% end %>
+                              <% end %>
                           <% end %>
                     </div>
                   </div>

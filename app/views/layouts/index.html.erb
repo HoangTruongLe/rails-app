@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+  <!--     Fonts and icons     -->
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application-index.css', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application-shared.css', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Miss+Fajardose" rel="stylesheet">
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <%= render 'welcome/header'%>         
+    <%= yield %>
+    <%= render 'welcome/carousel'%>
+    <%= render 'welcome/more_info'%>
+    <%= render 'welcome/footer'%>
+    <%= javascript_include_tag 'application-shared', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application-index', 'data-turbolinks-track' => true %>
+</body>
+</html>

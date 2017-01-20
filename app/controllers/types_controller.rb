@@ -25,7 +25,7 @@ class TypesController < ApplicationController
   # POST /types.json
   def create
     @type = Type.new(type_params)
-    debugger
+    @type.pname =  parameterize_name(@type.name)
     respond_to do |format|
       if @type.save
         format.html { redirect_to @type, notice: 'Type was successfully created.' }
@@ -70,5 +70,10 @@ class TypesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def type_params
       params.require(:type).permit(:name)
+    end
+    
+    def parameterize_name(str)
+      str.downcase
+      str.parameterize
     end
 end

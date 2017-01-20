@@ -1,0 +1,107 @@
+<div class="wrapper">        
+    <div class="demo-header demo-header-image">
+            <div class="motto">
+                <h1 class="title-uppercase">Amy spa</h1>
+                <h3 class="sologan">Mình thích thì mình làm thôi</h3>
+            </div>
+            
+    </div>
+    
+    <div class="main">
+        <div class="section section-nude">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2" id="sidebar">
+                <div class="fixed-section">
+                    <ul>
+                        <% if @types.any? %>
+                            <% @types.each do |t|%>
+                                <li><%= link_to t.name.camelize, root_path(anchor: t.pname )%></li>
+                                <hr>
+                            <% end %>
+                                
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-1">
+                <div class="tim-container">
+                         <div class="tim-row" style="min-height: 800px;">
+                                    <div class="col-xs-6 col-md-6">
+                                        
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <figure>
+                                                    <% if @product.product_photos.first %>
+                                                        <%= image_tag @product.product_photos.first.photo.url(:medium) %>
+                                                    <% else %>
+                                                        <img src="//s3.amazonaws.com/amyspa/product_photos/photos/000/000/004/medium/built_on_glass.jpg?1484895127" class="img-rounded">
+                                                    <% end %>
+                                                    <% if @product.sale_off!=nil and @product.sale_off > 0 %>
+                                                    <figcaption><div>
+                                                        <% if @product.discount_by_percentage %>
+                                                            <%= number_to_currency((@product.price - (@product.price/100*@product.sale_off)), locale: :vi, precision: 0).to_s if @product.price %>
+                                                        <% else %>
+                                                            <%= number_to_currency(@product.price - @product.sale_off, locale: :vi, precision: 0).to_s if @product.price %>
+                                                        <% end %>
+                                                    </div></figcation>
+                                                    <% else %>
+                                                    <figcaption><div><%= number_to_currency(@product.price, locale: :vi, precision: 0).to_s if @product.price %></div></figcation>
+                                                    <% end %>
+                                                </figure>
+                                            </div> 
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-xs-6 col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h3>
+                                                    <%= truncate(@product.name.camelize, length:25) %>
+                                                </h3>
+                                                <hr></hr>
+                                            </div> 
+                                        </div>
+                                        <% if @product.sale_off %>
+                                        <div class="row">
+                                            <div class="col-md-12 text-danger">
+                                                <label>Giá khuyến mãi: </label>
+                                                <% if @product.discount_by_percentage %>
+                                                    <%= number_to_currency(@product.price - @product.price/100*@product.sale_off, locale: :vi, precision: 0).to_s if @product.price %>
+                                                <% else %>
+                                                    <%= number_to_currency(@product.price - @product.sale_off, locale: :vi, precision: 0).to_s if @product.price %>
+                                                <% end %>
+                                            </div>
+                                         </div> 
+                                        <div class="row">
+                                            <div class="col-md-12 text-primary">
+                                                
+                                                <strike class="text-muted">
+                                                    <%= number_to_currency(@product.price, locale: :vi, precision: 0).to_s if @product.price %>
+                                                </strike>
+                                            </div>
+                                         </div>
+                                        
+                                        <% end %>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Loại: </label>
+                                                <%= @product.type.name if @product.type %>
+                                            </div>
+                                         </div>
+                                         <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Nhà cung cấp: </label>
+                                                <%= @product.vendor.name if @product.vendor %>
+                                            </div>
+                                         </div>
+                                    </div> 
+                                </div>
+                            </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

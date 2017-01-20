@@ -78,8 +78,8 @@
                     "env": {
                         "AWS_ACCESS_KEY_ID": "AKIAIJEC2DAX7HMQDKKA",
                         "AWS_REGION": "us-east-1",
-                        "AWS_S3_BUCKET": "amyspa",
-                        "AWS_SECRET_ACCESS_KEY": "ikhKJaIuW97gVoAkgGTM9OfXzsozRu4YpXEsCqG8"
+                        "AWS_SECRET_ACCESS_KEY": "ikhKJaIuW97gVoAkgGTM9OfXzsozRu4YpXEsCqG8",
+                        "S3_BUCKET_NAME": "amyspa"
                     },
                     "name": "Ruby on Rails",
                     "runner": "Ruby on Rails (default)"

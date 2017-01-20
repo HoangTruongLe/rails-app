@@ -13,16 +13,22 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                              <%= label_tag 'Price' %><br>
-                             <p><%= @product.price %></p>
+                             <p><%= number_to_currency(@product.price, locale: :vi, precision: 0).to_s if @product.price %></p>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                              <%= label_tag 'Safe Off' %><br>
-                             <p><%= @product.sale_off %></p>
+                             <p><%= number_to_currency(@product.sale_off, locale: :vi, precision: 0).to_s if @product.sale_off %></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                         <div class="form-group">
+                             <%= label_tag 'Discount by percentage' %><br>
+                             <%= check_box_tag nil, @product.discount_by_percentage, @product.discount_by_percentage , disabled: true %>
                         </div>
                     </div>
                 </div>
@@ -31,7 +37,7 @@
                         <div class="form-group">
                              <%= label_tag 'Type' %><br>
                              <% if @product.type %>
-                             <p><%= @product.type %></p>
+                             <p><%= @product.type.name %></p>
                              <% else %>
                              <p>None</p>
                              <% end %>
@@ -41,7 +47,7 @@
                         <div class="form-group">
                               <%= label_tag 'Vendor' %><br>
                              <% if @product.vendor %>
-                             <p><%= @product.vendor %></p>
+                             <p><%= @product.vendor.name %></p>
                              <% else %>
                              <p>None</p>
                              <% end %>
@@ -52,13 +58,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <%= label_tag 'Is Service' %><br>
-                            <%= check_box_tag nil, @product.is_service, nil, disabled: true %>
+                            <%= check_box_tag nil, @product.is_service, @product.is_service, disabled: true %>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <%= label_tag 'Is Product Active' %><br>
-                            <%= check_box_tag nil, @product.product_active, nil, disabled: true %>
+                            <%= check_box_tag nil, @product.product_active, @product.product_active, disabled: true %>
                         </div>
                     </div>
                 </div>
@@ -111,7 +117,7 @@
                             <div class="col-md-3">
                               <div class="card" data-no-turbolink="">
                                 <div class="thumbnail" style='position:reletive'>
-                                  <%= image_tag p.photo.url(:thumb) %>
+                                   <%= image_tag p.photo.url(:thumb) %>
                                    <%= link_to product_photo_path(p), method: :delete , class:"delete-button" do %>
                                         <i class="fa fa-times" aria-hidden="true" class="text-danger"></i>
                                     <% end %>
