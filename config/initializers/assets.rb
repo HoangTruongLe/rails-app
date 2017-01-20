@@ -9,10 +9,4 @@ Rails.application.config.assets.compile = true
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( application-admin.js )
-Rails.application.config.assets.precompile += %w( application-index.js )
-Rails.application.config.assets.precompile += %w( application-shared.js )
-
-Rails.application.config.assets.precompile += %w( application-admin.css )
-Rails.application.config.assets.precompile += %w( application-index.css )
-Rails.application.config.assets.precompile += %w( application-shared.css )
+Rails.application.config.assets.precompile =  ['*.js', '*.css', '*.css.erb'] 
