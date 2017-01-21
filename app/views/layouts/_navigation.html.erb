@@ -10,9 +10,7 @@
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
-                    Dashboard
-                </a>
+                <%= link_to 'Home Page', root_path , class: 'simple-text' %>
             </div>
 
             <ul class="nav">
@@ -35,18 +33,7 @@
                         <p>Vendor</p>
                     <% end %>
                 </li>
-                <li>
-                    <%= link_to(products_path) do %>
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                        <p>User</p>
-                    <% end %>
-                </li>
-                <li>
-                    <%= link_to(products_path) do %>
-                        <i class="fa fa-globe" aria-hidden="true"></i>
-                        <p>Message</p>
-                    <% end %>
-                </li>
+
             </ul>
     	</div>
     </div>

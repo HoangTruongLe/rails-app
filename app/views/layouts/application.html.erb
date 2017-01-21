@@ -5,13 +5,13 @@
   <!--     Fonts and icons     -->
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application-shared', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    'application-admin', media: 'all', 'data-turbolinks-track' => true %>
-  
+  <%= stylesheet_link_tag    'application-admin', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'application-shared', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <%= render 'layouts/navigation' %>
-<%= javascript_include_tag 'application-shared', 'data-turbolinks-track' => true %>
+
 <%= javascript_include_tag 'application-admin', 'data-turbolinks-track' => true %>
 </body>
 </html>
