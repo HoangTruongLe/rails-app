@@ -106,7 +106,7 @@
                           <%= f.label :photo %><br>
                           <div class="file-upload btn btn-info btn-sm">
                               <p id="uploadFile">Choose File</p>
-                             <%= file_field_tag "photos[]", type: :file, multiple: true, class:'upload', id:'uploadBtn' %>
+                             <%= file_field_tag "photos[]", type: :file, multiple: true, accept:"images/*", class:'upload', id:'uploadBtn' %>
                           </div>
                           <div class="col-md-12" id="preview"></div>
                           <hr>

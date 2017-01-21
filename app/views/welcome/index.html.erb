@@ -48,7 +48,7 @@
                                             <div class="col-md-12">
                                                 <figure>
                                                     <% if p.product_photos.first %>
-                                                        <%= image_tag p.product_photos.first.photo.url(:medium) %>
+                                                        <%= image_tag p.product_photos.first.photo.url(:medium), class:"img-rounded"%>
                                                     <% else %>
                                                         <img src="//s3.amazonaws.com/amyspa/product_photos/photos/000/000/004/medium/built_on_glass.jpg?1484895127" class="img-rounded">
                                                     <% end %>
@@ -80,6 +80,10 @@
                                                         <% else %>
                                                             <%= number_to_currency(p.price - p.sale_off, locale: :vi, precision: 0).to_s if p.price %>
                                                         <% end %>
+                                                    </p>
+                                                <% else %>
+                                                    <p class="text-primary pull-left">
+                                                        <%= number_to_currency(p.price, locale: :vi, precision: 0).to_s if p.price %>
                                                     </p>
                                                 <% end %>
                                             </div> 

@@ -1,7 +1,7 @@
 *, *::before, *::after{
-  -moz-box-sizing: border-box;
-       box-sizing: border-box;
-  
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          
   -webkit-transition: all 0.3s ease-in-out;
           transition: all 0.3s ease-in-out;
 }
@@ -17,6 +17,8 @@ figure{
   display: inline-block;
   vertical-align: top;
   box-shadow: 0 0 5px #ddd;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 figcaption{
@@ -36,6 +38,8 @@ figcaption div{
   opacity: 0;
   color: #2c3e50;
   text-transform: uppercase;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 figcaption div:after{
@@ -48,6 +52,8 @@ figcaption div:after{
   width: 0%;
   height: 2px;
   background: #2c3e50;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 figure img{
@@ -62,6 +68,7 @@ figure img{
 
 figure:hover figcaption{
  background: rgba(255,255,255,0.3);
+
 }
 
 figcaption:hover div{
@@ -74,6 +81,8 @@ figcaption:hover div:after{
 }
 
 figure:hover img{
+   border-radius: 8px;
+   
   -webkit-transform: scale3d(1.2, 1.2, 1);
           transform: scale3d(1.2, 1.2, 1);
 }
