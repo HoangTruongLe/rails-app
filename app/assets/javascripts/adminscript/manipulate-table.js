@@ -1,7 +1,8 @@
-var $table = $('#fresh-table'),
-            full_screen = false;
+
         
 $().ready(function(){
+    var $table = $('#fresh-table'),
+            full_screen = false;
     var element =  $('#js-table');
     if ($(document).find('#js-table').length == 0) 
     { 
