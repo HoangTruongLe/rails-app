@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
   
   def index
     @types = Type.all
-    @products = Product.all
+    @products = Product.where(product_active: true)
   end
   
   def show

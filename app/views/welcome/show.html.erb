@@ -10,9 +10,11 @@
                       </div>
                       <% if @product.product_photos.count > 1 %>
                       <% @product.product_photos.each do |p| %>
+                        <% if p.id != @product.product_photos.first.id %>
                           <div class="tab-pane" id="<%= p.id %>">
                             <%= image_tag p.photo.url(:medium) %>
                           </div>
+                        <% end %>
                       <% end %>
                       <% end %>
                     </div>
@@ -24,11 +26,13 @@
                         </a>
                       </li>
                       <% @product.product_photos.each do |p| %>
+                        <% if p.id != @product.product_photos.first.id %>
                           <li>
                             <a data-target="#<%= p.id %>" data-toggle="tab">
                               <%= image_tag p.photo.url(:thumb) %>
                             </a>
                           </li>
+                          <% end %>
                       <% end %>
                       <% end %>
                     </ul>
