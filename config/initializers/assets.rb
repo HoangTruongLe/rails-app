@@ -6,7 +6,12 @@ Rails.application.config.assets.compile = true
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
-Rails.application.config.assets.precompile += [/^[-_a-zA-Z0-9]*\..*/]
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile =  ['*.js', '*.css', 'jquery-migrate-rails.js'] 
+Rails.application.config.assets.precompile += %w( application-admin.js )
+Rails.application.config.assets.precompile += %w( application-index.js )
+Rails.application.config.assets.precompile += %w( application-shared.js )
+
+Rails.application.config.assets.precompile += %w( application-admin.css )
+Rails.application.config.assets.precompile += %w( application-index.css )
+Rails.application.config.assets.precompile += %w( application-shared.css )
