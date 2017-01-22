@@ -313,20 +313,10 @@ img {
 /*# sourceMappingURL=style.css.map */
 
 .poster {
-  width: 300px;
-  height: 530px;
-  display: block;
-  margin-top: 100px;
-  margin-bottom: 100px;
   text-align: center;
-  position: relative;
+  margin: 50px 0;
 }
-.poster img {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-}
+
 .poster h3 {
   display: inline-block;
   margin-top: 20px;
@@ -337,10 +327,10 @@ img {
 
 .poster .caption{
   display: inline-block;
-  width: 300px;
   text-align: center;
   padding: 20px;
   background-color: rgba(255,255,255,0.4);
+  width: 100%;
 }
 
 .poster-primary {
@@ -380,15 +370,6 @@ img {
   background-color: rgba(255,255,255,0.4);
 }
 
-.services{
-  margin-top: 50px;
-  margin-bottom: 100px;
-}
-.services p {
-  margin-bottom: 50px;
-}
-
 .services img{
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin: 15px auto;
 }
