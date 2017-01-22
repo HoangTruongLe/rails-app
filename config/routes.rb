@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :products, controller: 'products'
   resources :product_photos, only: [:destroy]
   root 'welcome#index'
-  match "/:id", to: 'welcome#show', :via => :get,  as: 'detail'
+  get 'show-products', to: 'welcome#products', as: 'show_products'
+  match 'show-products/:id', to: 'welcome#show', :via => :get,  as: 'detail'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

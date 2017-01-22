@@ -311,3 +311,84 @@ img {
             transform: scale(1); } }
 
 /*# sourceMappingURL=style.css.map */
+
+.poster {
+  width: 300px;
+  height: 530px;
+  display: block;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-align: center;
+  position: relative;
+}
+.poster img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.poster h3 {
+  display: inline-block;
+  margin-top: 20px;
+  text-transform: uppercase;
+  color: white;
+  font-family: 'Noticia Text', serif;
+}
+
+.poster .caption{
+  display: inline-block;
+  width: 300px;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255,255,255,0.4);
+}
+
+.poster-primary {
+  background-color: #8ECFD5;
+}
+
+.poster-info {
+  background-color: #7CE4FE;
+}
+
+.poster-success {
+  background-color: #8EF3C5;
+}
+
+.poster-warning {
+  background-color: #FFE28C;
+}
+
+.poster-danger{
+  background-color: #FF8F5E;
+}
+
+.section-info{
+  text-align: center;
+}
+.section-info u{
+  text-decoration: none;
+  border-bottom: 2px solid #9A9A9A;
+}
+
+.section-info p{
+  line-height: 40px;  
+}
+
+.product-info{
+  padding: 50px;
+  background-color: rgba(255,255,255,0.4);
+}
+
+.services{
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+.services p {
+  margin-bottom: 50px;
+}
+
+.services img{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}

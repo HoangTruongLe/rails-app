@@ -7,6 +7,11 @@ class WelcomeController < ApplicationController
     @products = Product.where(product_active: true)
   end
   
+  def products
+    @types = Type.all
+    @products = Product.where(product_active: true)
+  end
+  
   def show
     @types = Type.all
   end
@@ -15,4 +20,5 @@ class WelcomeController < ApplicationController
     def set_product
       @product = Product.find(params[:id])
     end
+  
 end

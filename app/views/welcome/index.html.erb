@@ -1,90 +1,124 @@
+<div class="main">
+  <div class="section">
+    <div class="row section-info">
+      <h2><u>AMY SPA</u></h2>
+      <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn</p>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-4">
+            <div class="center-block poster poster-info">
+              <h3>Điều trị</h3>
+              <div class="caption">
+                <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn. Lorem Ipsum đã được sử dụng như một văn bản chuẩn cho ngành công nghiệp in </p>
+              </div>
+              <img src="//s3.amazonaws.com/amyspa/product_photos/photos/000/000/045/medium/skin-treatment-250x250.png?1485068932"></img>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="center-block poster poster-primary">
+              <h3>Massage</h3>
+              <div class="caption">
+                <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn. Lorem Ipsum đã được sử dụng như một văn bản chuẩn cho ngành công nghiệp in </p>
+              </div>
+              <img src="//s3.amazonaws.com/amyspa/product_photos/photos/000/000/041/medium/a1.png?1485067219"></img>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="center-block poster poster-danger">
+              <h3>Chăm sóc tóc</h3>
+              <div class="caption">
+                <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn. Lorem Ipsum đã được sử dụng như một văn bản chuẩn cho ngành công nghiệp in </p>
+              </div>
+              <img src="//s3.amazonaws.com/amyspa/product_photos/photos/000/000/046/medium/123123.png?1485069632"></img>
+            </div>
+          </div>
 
-<div class="col-md-2 collapse navbar-collapse" id="sidebar">
-  <div class="fixed-section">
-    <ul>
-      <% if @types.any? %>
-          <% @types.each do |t|%>
-              <li><a href="#<%= t.pname %>"><%= t.name.camelize %></a></li>
-              <hr>
-          <% end %>
-
-      <% end %>
-
-    </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<div class="col-md-8 col-md-offset-1">
-  <div class="tim-container" >
-
-    <!-- buttons row -->
-    <% if @types.any? %>
-        <% @types.each do |t|%>
-            <div class="tim-row" id="<%= t.pname %>">
-              <h5><%= t.name.camelize %></h5>
-              <legend></legend>
-              <% if @products.any? %>
-                  <% @products.each do |p|%>
-                      <% if p.type and t.id == p.type.id%>
-                          <%= link_to detail_path(p) do %>
-                              <div class="col-xs-6 col-md-4">
-                                <div class="row">
-                                  <div class="col-md-12" style="min-height:50px">
-                                    <p><%= truncate(p.name.camelize, length:25) %></p>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col-md-12">
-                                    <figure>
-                                      <% if p.product_photos.first %>
-                                          <%= image_tag p.product_photos.first.photo.url(:medium), class:"img-rounded"%>
-                                      <% else %>
-                                          <img src="//s3.amazonaws.com/amyspa/product_photos/photos/000/000/004/medium/built_on_glass.jpg?1484895127" class="img-rounded">
-                                      <% end %>
-                                      <% if p.sale_off!=nil and p.sale_off > 0 %>
-                                          <figcaption><div>
-                                            <% if p.discount_by_percentage %>
-                                                <%= number_to_currency((p.price - (p.price/100*p.sale_off)), locale: :vi, precision: 0).to_s if p.price %>
-                                            <% else %>
-                                                <%= number_to_currency(p.price - p.sale_off, locale: :vi, precision: 0).to_s if p.price %>
-                                            <% end %>
-                                          </div></figcation>
-                                      <% else %>
-                                          <figcaption><div><%= number_to_currency(p.price, locale: :vi, precision: 0).to_s if p.price %></div></figcation>
-                                      <% end %>
-                                    </figure>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col-md-12">
-                                    <% if p.sale_off %>
-                                        <p class="text-primary pull-left">
-                                          <strike>
-                                            <%= number_to_currency(p.price, locale: :vi, precision: 0).to_s if p.price %>
-                                          </strike>
-                                        </p>
-                                        <p class="text-danger pull-left">
-                                          <% if p.discount_by_percentage %>
-                                              <%= number_to_currency(p.price - p.price/100*p.sale_off, locale: :vi, precision: 0).to_s if p.price %>
-                                          <% else %>
-                                              <%= number_to_currency(p.price - p.sale_off, locale: :vi, precision: 0).to_s if p.price %>
-                                          <% end %>
-                                        </p>
-                                    <% else %>
-                                        <p class="text-primary pull-left">
-                                          <%= number_to_currency(p.price, locale: :vi, precision: 0).to_s if p.price %>
-                                        </p>
-                                    <% end %>
-                                  </div>
-                                </div>
-                              </div>
-                          <% end %>
-                      <% end %>
-                  <% end %>
-              <% end %>
-              <div class="clearfix"></div>
+<div class="main">
+  <div class="container-fluid section section-light-blue">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-6">
+          <img class="center-block" src="//s3.amazonaws.com/amyspa/product_photos/photos/000/000/042/original/a4.png?1485067220"></img>
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-12 center-block product-info section-info">
+                <h3><u>lorem ipsum</u> </h3>
+                <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả</p>
+                <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả</p>
+                <p>được dùng vào việc trình bày và dàn</p>
+                <p>Lorem Ipsum đã được sử dụng như một văn bản chuẩn cho</p>
             </div>
-        <% end %>
-    <% end %>
-    <!-- end container -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="container">
+    <div class="row services">
+        <div class="col-md-12">
+            <div class="center-block section-info">
+                <h3><u>lorem ipsum</u> </h3>
+                <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả</p>
+            </div>
+        </div>
+      <div class="col-md-12">
+         <div class="col-md-3 col-sm-6 col-xl-6">
+             <img class="center-block" src="http://s3.amazonaws.com/amyspa/product_photos/photos/000/000/007/medium/chet_faker_1.jpg?1484824281"></img>
+         </div>
+         <div class="col-md-3 col-sm-6 col-xl-6">
+             <img class="center-block" src="http://s3.amazonaws.com/amyspa/product_photos/photos/000/000/007/medium/chet_faker_1.jpg?1484824281"></img>
+         </div>
+         <div class="col-md-3 col-sm-6 col-xl-6">
+             <img class="center-block" src="http://s3.amazonaws.com/amyspa/product_photos/photos/000/000/007/medium/chet_faker_1.jpg?1484824281"></img>
+         </div>
+         <div class="col-md-3 col-sm-6 col-xl-6">
+             <img class="center-block" src="http://s3.amazonaws.com/amyspa/product_photos/photos/000/000/007/medium/chet_faker_1.jpg?1484824281"></img>
+         </div>
+         <div class="col-md-3 col-sm-6 col-xl-6">
+             <img class="center-block" src="http://s3.amazonaws.com/amyspa/product_photos/photos/000/000/007/medium/chet_faker_1.jpg?1484824281"></img>
+         </div>
+         <div class="col-md-3 col-sm-6 col-xl-6">
+             <img class="center-block" src="http://s3.amazonaws.com/amyspa/product_photos/photos/000/000/007/medium/chet_faker_1.jpg?1484824281"></img>
+         </div>
+         <div class="col-md-3 col-sm-6 col-xl-6">
+             <img class="center-block" src="http://s3.amazonaws.com/amyspa/product_photos/photos/000/000/007/medium/chet_faker_1.jpg?1484824281"></img>
+         </div>
+         <div class="col-md-3 col-sm-6 col-xl-6">
+             <img class="center-block" src="http://s3.amazonaws.com/amyspa/product_photos/photos/000/000/007/medium/chet_faker_1.jpg?1484824281"></img>
+         </div>
+         <div class="col-md-3 col-sm-6 col-xl-6">
+             <img class="center-block" src="http://s3.amazonaws.com/amyspa/product_photos/photos/000/000/007/medium/chet_faker_1.jpg?1484824281"></img>
+         </div>
+         <div class="col-md-3 col-sm-6 col-xl-6">
+             <img class="center-block" src="http://s3.amazonaws.com/amyspa/product_photos/photos/000/000/007/medium/chet_faker_1.jpg?1484824281"></img>
+         </div>
+         <div class="col-md-3 col-sm-6 col-xl-6">
+             <img class="center-block" src="http://s3.amazonaws.com/amyspa/product_photos/photos/000/000/007/medium/chet_faker_1.jpg?1484824281"></img>
+         </div>
+         <div class="col-md-3 col-sm-6 col-xl-6">
+             <img class="center-block" src="http://s3.amazonaws.com/amyspa/product_photos/photos/000/000/007/medium/chet_faker_1.jpg?1484824281"></img>
+         </div>
+         <div class="col-md-3 col-sm-6 col-xl-6">
+             <img class="center-block" src="http://s3.amazonaws.com/amyspa/product_photos/photos/000/000/007/medium/chet_faker_1.jpg?1484824281"></img>
+         </div>
+         <div class="col-md-3 col-sm-6 col-xl-6">
+             <img class="center-block" src="http://s3.amazonaws.com/amyspa/product_photos/photos/000/000/007/medium/chet_faker_1.jpg?1484824281"></img>
+         </div>
+         <div class="col-md-3 col-sm-6 col-xl-6">
+             <img class="center-block" src="http://s3.amazonaws.com/amyspa/product_photos/photos/000/000/007/medium/chet_faker_1.jpg?1484824281"></img>
+         </div>
+         <div class="col-md-3 col-sm-6 col-xl-6">
+             <img class="center-block" src="http://s3.amazonaws.com/amyspa/product_photos/photos/000/000/007/medium/chet_faker_1.jpg?1484824281"></img>
+         </div>
+      </div>
+    </div>
   </div>
 </div>
