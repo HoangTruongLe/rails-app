@@ -74,10 +74,10 @@
               <div class="col-md-3">
                 <%= link_to show_services_path, class: 'service-wrapper center-block' do %>
                   <img class="img-responsive center-block" src="<%= s.product_photos.first.photo.url(:medium) %>"></img>
-                  <p>
-                    <i class="fa fa-snowflake-o" aria-hidden="true"></i>
-                    <%= s.name %>
-                  </p>
+                  <div class="text-wrapper">
+                      <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+                      <div><%= s.name %></div>
+                  </div>
                 <% end %>
               </div>
           <% end %>
