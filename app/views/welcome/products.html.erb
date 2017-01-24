@@ -16,7 +16,7 @@
                           <% @products.each do |p| %>
                               <% if p.type and t.id == p.type.id %>
                                   <%= link_to detail_path(p) do %>
-                                      <div class="col-md-3 col-sm-4 col-xl-6 center-block">
+                                      <div class="col-md-3 center-block">
                                         <div class="col-md-12 product-wrapper">
                                           <p><%= truncate(p.name.camelize, length: 20, omission: '') %></p>
                                           <div class="col-md-12">
