@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="wrapper" id="form">
     <div class="container">
         <div class="row">
@@ -11,18 +9,18 @@
                 -->
                 
                     <div class="toolbar">
-                        <%= link_to 'New Product', new_product_path, class:"btn btn-default" %>
-                        <h5 class="text-muted pull-right" style="margin-left:10px">Listing Products</h5>
+                        <%= link_to 'Thêm sản phẩm', new_product_path, class:"btn btn-default" %>
+                        <h5 class="text-muted pull-right" style="margin-left:10px">Danh Sách Sản Phẩm</h5>
                     </div>
                     
                     <table id="fresh-table" class="table">
                         <thead>
                             <th data-field="id">ID</th>
-                        	<th data-field="name" data-sortable="true">Name</th>
-                        	<th data-field="price" data-sortable="true">price</th>
-                        	<th data-field="country" data-sortable="true">Country</th>
-                        	<th data-field="city">City</th>
-                        	<th data-field="actions" >Actions</th>
+                        	<th data-field="name" data-sortable="true">Tên</th>
+                        	<th data-field="price" data-sortable="true">Giá</th>
+                        	<th data-field="sale_off" data-sortable="true">Giảm Giá</th>
+                        	<th data-field="is_service">Dịch Vụ</th>
+                        	<th data-field="actions" >Chức Năng</th>
                         </thead>
                         <tbody>
                             <% @products.each do |product| %>

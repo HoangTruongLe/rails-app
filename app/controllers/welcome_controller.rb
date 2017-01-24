@@ -5,6 +5,7 @@ class WelcomeController < ApplicationController
   def index
     @types = Type.all
     @products = Product.where(product_active: true)
+    @services = Product.where(is_service: true)
   end
   
   def products
@@ -17,7 +18,7 @@ class WelcomeController < ApplicationController
   end
   
   def services
-    
+    @services = Product.where(is_service: true)
   end
   
   private

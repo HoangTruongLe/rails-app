@@ -11,11 +11,26 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="col-md-12">
+  <div class="card">
+    <div class="header">
+      <h4 class="title"><%= title %></h4>
+    </div>
+    <div class="content">
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label 'Tên Nhà Cung Cấp' %><br>
+            <%= f.text_field :name, class:"form-control", placeholder:"Tên Nhà Cung Cấp" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 actions">
+          <%= f.submit title, class:"btn btn-info btn-fill pull-right" %>
+          </div>
+          <div class="clearfix"></div>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>  
 <% end %>
