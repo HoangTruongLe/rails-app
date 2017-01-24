@@ -71,7 +71,7 @@
     <div class="row">
       <% if @services %>
           <%  @services.each do |s|  %>
-              <div class="col-md-3">
+              <div class="col-md-3 center-block">
                 <%= link_to show_services_path, class: 'service-wrapper center-block' do %>
                   <img class="img-responsive center-block" src="<%= s.product_photos.first.photo.url(:medium) %>"></img>
                   <div class="text-wrapper">
