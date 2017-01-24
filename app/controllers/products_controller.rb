@@ -90,7 +90,8 @@ class ProductsController < ApplicationController
               :sale_off, 
               :description, 
               :is_service, 
-              :product_active)
+              :product_active,
+              :discount_by_percentage)
     end
 
 end

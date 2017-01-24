@@ -16,6 +16,10 @@ class WelcomeController < ApplicationController
     @types = Type.all
   end
   
+  def services
+    
+  end
+  
   private
     def set_product
       @product = Product.find(params[:id])

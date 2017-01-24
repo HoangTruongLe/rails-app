@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :product_photos, only: [:destroy]
   root 'welcome#index'
   get 'show-products', to: 'welcome#products', as: 'show_products'
+  get 'show-services', to: 'welcome#services', as: 'show_services'
   match 'show-products/:id', to: 'welcome#show', :via => :get,  as: 'detail'
   
   # The priority is based upon order of creation: first created -> highest priority.

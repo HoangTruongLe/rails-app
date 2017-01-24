@@ -36,7 +36,7 @@
                                     <%= link_to product, class:"table-action like" do %>
                                         <i class="fa fa-eye" aria-hidden="true" class='text-default'></i>
                                     <% end %>
-                                    <%= link_to product, class:"table-action like" do %>
+                                    <%= link_to edit_product_path(product), class:"table-action like" do %>
                                         <i class="fa fa-pencil-square-o" class='text-warning'aria-hidden="true"></i>
                                     <% end %>
                                     <%= link_to product, method: :delete , class:"table-action like" do %>

@@ -8,13 +8,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="http://www.creative-tim.com">
+      <a>
         <div class="logo-container">
           <div class="logo">
             <img src="https://s3.amazonaws.com/amyspa/product_photos/photos/000/000/001/thumb/new_logo.png?1484805962" alt="Creative Tim Logo">
           </div>
           <div class="brand">
-            Creative Tim
           </div>
         </div>
       </a>
@@ -24,10 +23,15 @@
     <div class="collapse navbar-collapse" id="navigation-example-2">
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="components.html" class="btn btn-danger btn-simple">Components</a>
+          <%= link_to root_path, class:"btn btn-danger btn-simple" do %>
+            <i class="fa fa-home" aria-hidden="true"></i>
+          <% end %>
         </li>
         <li>
-          <a href="tutorial.html" class="btn btn-danger btn-simple">Tutorial</a>
+          <%= link_to "Sản Phẩm", show_products_path, class:"btn btn-danger btn-simple" %>
+        </li>
+        <li>
+          <%= link_to 'Dịch Vụ',show_services_path, class:"btn btn-danger btn-simple"%>
         </li>
         <li>
           <%= link_to 'Admin Page', products_path , class: 'btn btn-danger btn-fill' %>
