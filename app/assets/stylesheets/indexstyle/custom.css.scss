@@ -220,7 +220,8 @@ img {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: flex; } }
+    display: flex; } 
+}
 
 .details {
   display: -webkit-box;
@@ -401,16 +402,14 @@ img {
   max-width: 70%;
 }
 
-@media (min-width: 768px){
+@media screen and (min-width: 768px){
   .img-responsive{
     width: 100%;
     height: auto;
   }
   .poster img{
     position: initial;}
-  #sidebar{
-    display: none;
-  }
+  
 }
 
 .product-wrapper{
@@ -508,4 +507,13 @@ img {
 
 .service-content{
   background-color: rgba(74,143,171,0.1) ;
+}
+
+@media screen and (max-width: 970px) {
+  #sidebar {
+    visibility: hidden;
+    clear: both;
+    float: left;
+    display: none;
+  }
 }

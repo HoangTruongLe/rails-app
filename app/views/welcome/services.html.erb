@@ -23,10 +23,10 @@
                     </div>
                     <div class="col-md-8">
                       <div class="col-md-12 center-block product-info section-info">
-                        <p>Hàng nhập khẩu có nguồn gốc xuất xứ rõ ràng</p>
-                        <p>Chất lượng đã được kiểm nghiệm và sử dụng bởi khách hàng</p>
-                        <p>Giá cả hợp lý đi cùng chất lượng đảm bảo</p>
-                        <p>Sản phẩm có thương hiệu nổi tiếng trên thị trường</p>
+                        <% result = s[:description].split('.').first(2)%>
+                        <% result.each do |str| %>
+                        <p><%= str%></p>
+                        <% end %>
                         <%= link_to "Xem", detail_path(s), class:"btn btn-danger"%>
                       </div>
                     </div>
