@@ -10,7 +10,7 @@ class ProductPhoto < ActiveRecord::Base
     #   original_10: "-resample 10 -strip",
     #   original_5: "-resample 5 -strip",
     # },
-    large: "600*600#", 
+    large: "750x520#", 
     medium: "300x300#", 
     thumb: "100x100#" },
     default_url: "/images/:style/missing.png"

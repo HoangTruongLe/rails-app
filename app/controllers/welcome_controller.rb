@@ -6,7 +6,6 @@ class WelcomeController < ApplicationController
     @types = Type.all
     @products = Product.where(product_active: true)
     @services = Product.where(is_service: true)
-    @services_limited = Product.where(is_service: true).order("RANDOM()").first(3)
   end
   
   def products

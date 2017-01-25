@@ -13,20 +13,15 @@
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
-        <% if @services_limited %>
-            <div class="item active">
-              <%= link_to detail_path(@services_limited.first) do %>
-                  <img class='carousel-img-slider' src="<%= @services_limited.first.product_photos.first.photo.url(:original) %>"></img>
-              <% end %>
-            </div>
-            <% @services_limited.each do |s|%>
-                <div class="item">
-                  <%= link_to detail_path(s) do %>
-                      <img class='carousel-img-slider' src="<%= s.product_photos.first.photo.url(:original) if s.id != @services_limited.first.id %>"></img>
-                  <% end %>
-                </div>
-            <% end %>
-        <% end %>
+        <div class="item active">
+          <img src="//s3.amazonaws.com/amyspa/product_photos/photos/000/000/083/large/201301-orig-bogus-skin-care-949x534.jpg?1485328012" alt="Awesome Image">
+        </div>
+        <div class="item">
+          <img src="//s3.amazonaws.com/amyspa/product_photos/photos/000/000/084/large/co-nen-triet-long-vinh-vien.jpg?1485328016" alt="Awesome Image">
+        </div>
+        <div class="item">
+          <img src="//s3.amazonaws.com/amyspa/product_photos/photos/000/000/085/large/da-bi-ran-phai-lam-sao-3.jpg?1485328019" alt="Awesome Image">
+        </div>
       </div>
 
       <!-- Controls -->
