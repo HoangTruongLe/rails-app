@@ -1,0 +1,41 @@
+<div class="main">
+  <div class="container" style="margin-top: 50px">
+    <div class="row row-offcanvas row-offcanvas-right">
+      <div class="col-sm-3 sidebar-offcanvas" id="sidebar">
+        <div class="list-group">
+          <% if @services.any? %>
+              <% @services.each do |s| %>
+                  <a href="#<%= s.name.downcase.parameterize %>" class="list-group-item"><%= s.name.camelize %></a>
+              <% end %>
+          <% end %>
+        </div>
+      </div><!--/.sidebar-offcanvas-->
+      <div class="col-sm-9">
+        <% if @services.any? %>
+            <% @services.each do |s| %>
+                <div class="service-detail-wrapper">
+                  <div class="service-header" id="<%= s.name.downcase.parameterize %>">
+                    <h5><%= s.name %></h5>
+                  </div>
+                  <div class="col-md-12 service-content">
+                    <div class="col-md-4" style="padding: 20px 0px;">
+                      <img class="img-responsive center-block"  src="<%= s.product_photos.first.photo.url(:medium) if s.product_photos.any? %>" ></img>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="col-md-12 center-block product-info section-info">
+                        <p>Hàng nhập khẩu có nguồn gốc xuất xứ rõ ràng</p>
+                        <p>Chất lượng đã được kiểm nghiệm và sử dụng bởi khách hàng</p>
+                        <p>Giá cả hợp lý đi cùng chất lượng đảm bảo</p>
+                        <p>Sản phẩm có thương hiệu nổi tiếng trên thị trường</p>
+                        <%= link_to "Xem", detail_path(s), class:"btn btn-danger"%>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

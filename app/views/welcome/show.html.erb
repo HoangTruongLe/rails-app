@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="card">
-      <div class="container">
-        <div class="wrapper row">
+      <div class="container-fliud">
+        <div class="product-details-wrapper row">
           <div class="preview col-md-6">
             <% if @product.product_photos.first %>
                 <div class="preview-pic tab-content">
@@ -64,12 +64,10 @@
                     <% end %>
                     </span>
                 </h4>
-                <h4 class="price">Giá cũ:
-                  <span>
-                    <strike class="text-muted">
-                      <%= number_to_currency(@product.price, locale: :vi, precision: 0).to_s if @product.price %>
-                    </strike>
-                    </span>
+                <h4>Giá cũ:
+                      <strike>
+                        <%= number_to_currency(@product.price, locale: :vi, precision: 0).to_s if @product.price %>
+                      </strike>
                 </h4>
 
             <% else %>

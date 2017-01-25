@@ -68,20 +68,20 @@
         </div>
       </div>
     </div>
-    <div class="row center-block">
-      <% if @services %>
+    <div class="row">
+        <% if @services %>
           <%  @services.each do |s|  %>
               <div class="col-md-3">
-                <%= link_to show_services_path, class: 'service-wrapper center-block' do %>
-                  <img class="img-responsive center-block" src="<%= s.product_photos.first.photo.url(:medium) %>"></img>
-                  <div class="text-wrapper">
-                      <i class="fa fa-snowflake-o" aria-hidden="true"></i>
-                      <div><%= s.name %></div>
-                  </div>
+                <%= link_to detail_path(s), class: 'service-wrapper center-block' do %>
+                    <img class="img-responsive center-block" src="<%= s.product_photos.first.photo.url(:medium) %>"></img>
+                    <div class="text-wrapper">
+                        <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+                        <div><%= s.name %></div>
+                    </div>
                 <% end %>
               </div>
           <% end %>
-      <% end %>
+        <% end %>
     </div>
   </div>
 </div>
