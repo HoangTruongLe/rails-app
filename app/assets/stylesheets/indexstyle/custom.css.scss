@@ -325,10 +325,19 @@ img {
 .poster {
   text-align: center;
   margin: 50px 0;
+  min-height: 605px;
+  position: relative;
+}
+.poster img{
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
 }
 
+
 .poster h3 {
-  display: inline-block;
+  display: block;
   margin-top: 20px;
   text-transform: uppercase;
   color: white;
@@ -336,7 +345,7 @@ img {
 }
 
 .poster .caption{
-  display: inline-block;
+  display: block;
   text-align: center;
   padding: 20px;
   background-color: rgba(255,255,255,0.4);
@@ -361,6 +370,7 @@ img {
 
 .poster-danger{
   background-color: #FF8F5E;
+  
 }
 
 .section-info{
