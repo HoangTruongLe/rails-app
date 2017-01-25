@@ -1,7 +1,7 @@
 <div class="main">
   <div class="container" style="margin-top: 50px">
     <div class="row row-offcanvas row-offcanvas-right">
-      <div class="col-sm-3 sidebar-offcanvas" id="sidebar">
+      <div class="col-md-3 sidebar-offcanvas" id="sidebar">
         <div class="list-group">
           <% if @services.any? %>
               <% @services.each do |s| %>
@@ -10,7 +10,7 @@
           <% end %>
         </div>
       </div><!--/.sidebar-offcanvas-->
-      <div class="col-sm-9">
+      <div class="col-md-9">
         <% if @services.any? %>
             <% @services.each do |s| %>
                 <div class="service-detail-wrapper">
