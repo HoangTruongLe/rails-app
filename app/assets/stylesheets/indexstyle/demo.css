@@ -199,7 +199,6 @@
 }
 
 .logo-container .brand{
-    font-size: 18px;
     color: #FFFFFF;
     line-height: 20px;
     float: left;
@@ -211,7 +210,7 @@
 .logo-container{
     margin-top: 10px;
 }
-.logo-container .logo img{
+.logo-container .logo img {
     width: 100%;
 }
 .navbar-small .logo-container .brand{
