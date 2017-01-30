@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   # GET /products
   # GET /products.json
@@ -91,7 +92,8 @@ class ProductsController < ApplicationController
               :description, 
               :is_service, 
               :product_active,
-              :discount_by_percentage)
+              :discount_by_percentage,
+              :extra_info)
     end
 
 end

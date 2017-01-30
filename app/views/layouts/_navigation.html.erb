@@ -61,11 +61,14 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
+                       <% if current_user %>
                         <li>
-                           <a href="">
-                               Tài khoản
-                            </a>
+                          <%= link_to ('<i class="fa fa-user"></i> ' + truncate(current_user.email, length: 25)).html_safe, edit_user_registration_path, title: 'Tài Khoản' %>
                         </li>
+                        <li>
+                          <%= link_to 'Đăng xuất', destroy_user_session_path , title: 'logout', method: :delete %>
+                        </li>
+                        <% end %>
 
 
                     </ul>

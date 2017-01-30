@@ -26,10 +26,18 @@
         <li>
           <%= link_to 'Dịch Vụ',show_services_path, class:"btn btn-danger btn-simple"%>
         </li>
+        <% if current_user %>
         <li>
-          <%= link_to 'Admin Page', products_path , class: 'btn btn-danger btn-fill' %>
+          <%= link_to ('<i class="fa fa-user"></i> ' + truncate(current_user.email, length: 25)).html_safe, edit_user_registration_path, title: 'Tài Khoản' %>
         </li>
-        
+        <li>
+          <%= link_to 'Trang Quản Lý', products_path , class: 'btn btn-danger btn-fill' %>
+        </li>
+        <% else %>
+        <li>
+          <%= link_to 'Đăng Nhập', new_user_session_path, class: 'btn btn-danger btn-fill', title: 'Sign In' %>
+        </li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-->

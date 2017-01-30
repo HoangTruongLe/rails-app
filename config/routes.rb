@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   resources :vendors
   resources :types
   resources :products, controller: 'products'

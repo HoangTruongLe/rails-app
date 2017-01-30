@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   before_action :set_product, only: [:show]
+  skip_before_action :authenticate_user!
   layout 'index'
   
   def index

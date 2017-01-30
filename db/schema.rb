@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170120092510) do
+ActiveRecord::Schema.define(version: 20170130035242) do
 
   create_table "product_photos", force: :cascade do |t|
     t.datetime "created_at",         null: false
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20170120092510) do
     t.string   "video_url"
     t.text     "caption"
     t.boolean  "discount_by_percentage", default: true
+    t.text     "extra_info"
   end
 
   add_index "products", ["type_id"], name: "index_products_on_type_id"
@@ -62,6 +63,10 @@ ActiveRecord::Schema.define(version: 20170120092510) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
