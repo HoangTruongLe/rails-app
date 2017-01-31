@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :require_admin
   # GET /products
   # GET /products.json
   def index
@@ -94,6 +94,13 @@ class ProductsController < ApplicationController
               :product_active,
               :discount_by_percentage,
               :extra_info)
+    end
+    
+    def require_admin
+      if !current_user.admin
+        flash[:danger] = 'Only admins can perform that action'
+        redirect_to root_path
+      end
     end
 
 end

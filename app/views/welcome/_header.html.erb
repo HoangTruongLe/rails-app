@@ -31,7 +31,10 @@
           <%= link_to ('<i class="fa fa-user"></i> ' + truncate(current_user.email, length: 25)).html_safe, edit_user_registration_path, title: 'Tài Khoản' %>
         </li>
         <li>
-          <%= link_to 'Trang Quản Lý', products_path , class: 'btn btn-danger btn-fill' %>
+          <%= link_to 'Trang Quản Lý', products_path , class: 'btn btn-danger btn-fill' if current_user.admin %>
+        </li>
+        <li>
+          <%= link_to 'Đăng xuất', destroy_user_session_path , title: 'logout', method: :delete %>
         </li>
         <% else %>
         <li>

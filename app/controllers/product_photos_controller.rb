@@ -1,5 +1,6 @@
 class ProductPhotosController < ApplicationController
   before_action :set_product_photo, only: [:destroy]
+  before_action :require_admin
   def destroy
     @product_photo.photo = nil
     @product_photo.save

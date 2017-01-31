@@ -79,6 +79,9 @@
                         "AWS_ACCESS_KEY_ID": "AKIAIJEC2DAX7HMQDKKA",
                         "AWS_REGION": "us-east-1",
                         "AWS_SECRET_ACCESS_KEY": "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",
+                        "CALLBACK_URL": "https://amyspa-truongle.c9users.io/users/auth/facebook/callback",
+                        "FACEBOOK_KEY": "1885443228408624",
+                        "FACEBOOK_SECRET": "dce244a25a2103e3ea1280e0e7fa98bb",
                         "S3_BUCKET_NAME": "amyspa",
                         "SENDGRID_PASSWORD": "Av310i@@!",
                         "SENDGRID_USERNAME": "amyspa"
